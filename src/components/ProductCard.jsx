@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 function ProductCard({ product }) {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div
       style={{
@@ -27,15 +32,20 @@ function ProductCard({ product }) {
       </p>
 
       <button
+        onClick={() => addToCart(product)}
         style={{
           padding: "10px",
-          cursor: "pointer"
+          cursor: "pointer",
+          border: "none",
+          borderRadius: "5px",
+          backgroundColor: "#111",
+          color: "white"
         }}
       >
         Agregar al carrito
       </button>
     </div>
-  )
+  );
 }
 
-export default ProductCard
+export default ProductCard;
