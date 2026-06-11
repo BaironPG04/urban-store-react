@@ -5,6 +5,7 @@ function CartDrawer() {
 const {
   cart,
   isCartOpen,
+  setIsCartOpen,
   increaseQuantity,
   decreaseQuantity,
   removeItem
@@ -31,7 +32,37 @@ const {
         zIndex: 1000
       }}
     >
-      <h2>Tu Carrito</h2>
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
+  }}
+>
+  <h2>Tu Carrito</h2>
+
+  <button
+    onClick={() => setIsCartOpen(false)}
+    style={{
+      border: "none",
+      background: "none",
+      fontSize: "20px",
+      cursor: "pointer"
+    }}
+  >
+    ✕
+  </button>
+</div>
+      <button
+  onClick={() => setIsCartOpen(false)}
+  style={{
+    marginBottom: "20px",
+    padding: "8px 12px",
+    cursor: "pointer"
+  }}
+>
+  Cerrar
+</button>
 
       {cart.length === 0 ? (
         <p>No hay productos.</p>

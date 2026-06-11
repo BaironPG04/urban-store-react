@@ -7,19 +7,20 @@ function ProductCard({ product }) {
   return (
     <div
       style={{
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        padding: "15px",
-        backgroundColor: "white",
-        textAlign: "center"
-      }}
+  borderRadius: "15px",
+  overflow: "hidden",
+  backgroundColor: "white",
+  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+  transition: "0.3s"
+}}
     >
       <img
         src={product.image}
         alt={product.name}
         style={{
           width: "100%",
-          borderRadius: "8px"
+height: "300px",
+objectFit: "cover"
         }}
       />
 
@@ -33,14 +34,16 @@ function ProductCard({ product }) {
 
       <button
         onClick={() => addToCart(product)}
-        style={{
-          padding: "10px",
-          cursor: "pointer",
-          border: "none",
-          borderRadius: "5px",
-          backgroundColor: "#111",
-          color: "white"
-        }}
+       style={{
+  padding: "12px 20px",
+  cursor: "pointer",
+  border: "none",
+  borderRadius: "8px",
+  backgroundColor: "#111",
+  color: "white",
+  width: "100%",
+  fontWeight: "bold"
+}}
       >
         Agregar al carrito
       </button>

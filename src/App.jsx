@@ -10,14 +10,38 @@ function App() {
       <CartDrawer />
 
       <div style={{ padding: "30px" }}>
-        <h1
-          style={{
-            textAlign: "center",
-            marginBottom: "30px"
-          }}
-        >
-          Nueva Colección
-        </h1>
+
+  <section
+    style={{
+      backgroundColor: "#111",
+      color: "white",
+      padding: "60px 30px",
+      borderRadius: "15px",
+      textAlign: "center",
+      marginBottom: "40px"
+    }}
+  >
+    <h1
+      style={{
+        fontSize: "3rem",
+        marginBottom: "15px"
+      }}
+    >
+      Urban Store
+    </h1>
+
+    <p
+      style={{
+        fontSize: "1.2rem",
+        maxWidth: "700px",
+        margin: "0 auto"
+      }}
+    >
+      Descubre nuestra nueva colección de Pantalonetas
+      exclusivas. Diseños modernos, edición limitada
+      y estilo urbano para destacar en cualquier lugar.
+    </p>
+  </section>
 
         <div
           style={{
