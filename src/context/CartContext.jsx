@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (product) => {
     const existingProduct = cart.find(
@@ -35,9 +36,11 @@ function CartProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
-        cart,
-        addToCart,
-      }}
+  cart,
+  addToCart,
+  isCartOpen,
+  setIsCartOpen,
+}}
     >
       {children}
     </CartContext.Provider>

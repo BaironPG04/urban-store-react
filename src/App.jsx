@@ -1,11 +1,13 @@
 import Navbar from "./components/Navbar"
 import ProductCard from "./components/ProductCard"
 import products from "./data/products"
+import CartDrawer from "./components/CartDrawer";
 
 function App() {
   return (
     <>
       <Navbar />
+      <CartDrawer />
 
       <div style={{ padding: "30px" }}>
         <h1

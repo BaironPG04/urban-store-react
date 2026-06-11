@@ -2,8 +2,11 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 function Navbar() {
-  const { cart } = useContext(CartContext);
-
+const {
+  cart,
+  isCartOpen,
+  setIsCartOpen
+} = useContext(CartContext);
   const totalItems = cart.reduce(
     (total, item) => total + item.quantity,
     0
@@ -23,13 +26,15 @@ function Navbar() {
       <h2>Urban Store</h2>
 
       <div
-        style={{
-          fontSize: "20px",
-          fontWeight: "bold"
-        }}
-      >
-        🛒 {totalItems}
-      </div>
+  onClick={() => setIsCartOpen(!isCartOpen)}
+  style={{
+    fontSize: "20px",
+    fontWeight: "bold",
+    cursor: "pointer"
+  }}
+>
+  🛒 {totalItems}
+</div>
     </nav>
   );
 }
