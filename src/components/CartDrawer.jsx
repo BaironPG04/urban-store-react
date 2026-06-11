@@ -2,9 +2,19 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 function CartDrawer() {
-  const { cart, isCartOpen } = useContext(CartContext);
-
+const {
+  cart,
+  isCartOpen,
+  increaseQuantity,
+  decreaseQuantity,
+  removeItem
+} = useContext(CartContext);
   if (!isCartOpen) return null;
+  const subtotal = cart.reduce(
+  (total, item) =>
+    total + item.price * item.quantity,
+  0
+);
 
   return (
     <div
@@ -37,17 +47,52 @@ function CartDrawer() {
           >
             <h4>{item.name}</h4>
 
-            <p>
-              Cantidad: {item.quantity}
-            </p>
+           <div
+  style={{
+    display: "flex",
+    gap: "10px",
+    alignItems: "center",
+    margin: "10px 0"
+  }}
+>
+  <button
+    onClick={() =>
+      decreaseQuantity(item.id)
+    }
+  >
+    -
+  </button>
 
-            <p>
-              $
-              {(item.price * item.quantity).toLocaleString()}
-            </p>
+  <span>{item.quantity}</span>
+
+  <button
+    onClick={() =>
+      increaseQuantity(item.id)
+    }
+  >
+    +
+  </button>
+</div>
+
+<p>
+  $
+  {(item.price * item.quantity).toLocaleString()}
+</p>
+
+<button
+  onClick={() => removeItem(item.id)}
+>
+  Eliminar
+</button>
           </div>
         ))
       )}
+      <hr />
+
+<h3>
+  Subtotal: $
+  {subtotal.toLocaleString()}
+</h3>
     </div>
   );
 }
